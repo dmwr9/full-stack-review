@@ -35,7 +35,8 @@ massive({
 // auth
 app.post(`/auth/register`, auth.register);
 app.post(`/auth/login`, auth.login);
-
+app.post(`/auth/logout`, auth.logout);
+app.get(`/auth/user`, auth.getUserSession);
 
 // * nodemon listens for changes
 app.listen(SERVER_PORT, () => console.log(`Get out of my swamp! ${SERVER_PORT}`))
