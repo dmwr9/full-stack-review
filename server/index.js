@@ -7,6 +7,7 @@ const session = require('express-session');
 // * import variables
 const app = express();
 const {SESSION_SECRET, SERVER_PORT, CONNECTION_STRING} = process.env
+const auth = require('./controllers/userController');
 
 // * top level middleware
 app.use(express.json())
@@ -31,6 +32,9 @@ massive({
 })
 
 // * Endpoints
+// auth
+app.post(`/auth/register`, auth.register);
+app.post(`/auth/login`, auth.login);
 
 
 // * nodemon listens for changes
