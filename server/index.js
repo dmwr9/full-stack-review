@@ -33,7 +33,7 @@ massive({
 
 // * Endpoints
 // auth
-app.post(`/auth/register`, auth.register);
+app.post(`/auth/register`, auth.emailMiddleware, auth.register);
 app.post(`/auth/login`, auth.login);
 app.post(`/auth/logout`, auth.logout);
 app.get(`/auth/user`, auth.getUserSession);

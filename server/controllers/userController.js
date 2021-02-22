@@ -51,5 +51,12 @@ module.exports = {
         } else {
             res.status(404).send('Please Log In')
         }
+    },
+    emailMiddleware: (req, res, next) => {
+        if(req.body.email.includes("@")){
+           return next()
+        } else {
+            res.status(500).send("invalid email")
+        }
     }
 }
