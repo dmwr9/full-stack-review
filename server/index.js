@@ -8,6 +8,7 @@ const session = require('express-session');
 const app = express();
 const {SESSION_SECRET, SERVER_PORT, CONNECTION_STRING} = process.env
 const auth = require('./controllers/userController');
+const post = require('./controllers/postController');
 
 // * top level middleware
 app.use(express.json())
@@ -37,6 +38,9 @@ app.post(`/auth/register`, auth.emailMiddleware, auth.register);
 app.post(`/auth/login`, auth.login);
 app.post(`/auth/logout`, auth.logout);
 app.get(`/auth/user`, auth.getUserSession);
+// posts
+app.get('/api/posts', post.getPosts);
+app.post('/api/posts', post.addPost);
 
 // * nodemon listens for changes
 app.listen(SERVER_PORT, () => console.log(`Get out of my swamp! ${SERVER_PORT}`))
