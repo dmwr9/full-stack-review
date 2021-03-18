@@ -42,5 +42,7 @@ app.get(`/auth/user`, auth.getUserSession);
 app.get('/api/posts', post.getPosts);
 app.post('/api/posts', post.addPost);
 
+app.post('/api/profilepic', prfl.profilePic);
+
 // * nodemon listens for changes
 app.listen(SERVER_PORT, () => console.log(`Get out of my swamp! ${SERVER_PORT}`))
